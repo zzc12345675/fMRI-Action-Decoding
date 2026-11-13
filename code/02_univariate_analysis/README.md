@@ -1,4 +1,4 @@
-# Univariate analysis (单变量分析)
+# Univariate analysis 
 
 **Steps 14–17**, plus other univariate analysis **only when confirmed in actual code**:
 
