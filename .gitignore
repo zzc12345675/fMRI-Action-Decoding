@@ -1,0 +1,20 @@
+# Prevent accidental publication of imaging data and local derivatives
+data/
+rawdata/
+derivatives/
+*.dcm
+*.nii
+*.nii.gz
+
+# Python and notebooks
+__pycache__/
+*.py[cod]
+.ipynb_checkpoints/
+.venv/
+venv/
+
+# Local secrets and OS files
+.env
+.env.*
+.DS_Store
+Thumbs.db
