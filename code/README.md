@@ -1,21 +1,11 @@
-# Code organization / 代码目录
+# Code
 
-Files are grouped by **what the analysis does**, not by programming language. Keep original scripts intact until inputs, outputs and run logs are checked.
+Keep the three major stages easy to navigate:
 
-| Folder | Steps in [analysis index](../docs/analysis_workflow.md) | Intended code |
-|---|---|---|
-| `00_data_audit/` | 1–4 | DICOM→NIfTI, scan/run mapping, trial counts, acquisition parameters |
-| `01_preprocessing/` | 5–10 | Slice timing, realignment, coregistration, segmentation, normalization, smoothing |
-| `02_quality_control/` | 11–13 | Overlay checks, FD, spike detection and QC summaries |
-| `03_univariate_glm/` | 14–17 and other **verified** univariate analyses | First-level model, contrasts, second-level, FWE |
-| `04_trialwise_glm/` | 18–24 | HRF/design, nuisance regressors, diagnostics, beta labeling, feature tables |
-| `05_searchlight/` | 25–31 | Masks, pilot, searchlight SVM, space matching, group permutations |
-| `06_roi_decoding/` | 32–36 | Anatomical ROI masks, within/cross-format decoding, statistics, sample matching |
-| `07_rsa/` | 37–41 | Mean patterns, RDMs, within/cross-format comparisons, trial matching |
-| `08_statistics/` | Cross-cutting | Shared or group-level statistics not already kept with an analysis |
-| `09_visualization/` | Cross-cutting | Scripts producing publication plots and tables |
-| `10_utils/` | Cross-cutting | Reusable checked helpers |
+1. `01_preprocessing/` — steps 1–13, including data/run checks, preprocessing and QC
+2. `02_univariate_analysis/` — steps 14–17 and other verified univariate work; its contrasts, group statistics and FWE tests belong here
+3. `03_multivariate_analysis/` — steps 18–41: single-trial GLM, Searchlight, ROI decoding, RSA, and statistical tests for **each** analysis
 
-The shared `08_statistics/` folder is **not** a substitute for specifying each analysis's correct permutation design and multiple-comparison family.
+No standalone `statistics/` folder: statistical analysis should stay with the method and results it tests.
 
-**Naming rule:** Only place a script in a folder once its actual function is understood. Do not infer successful execution from the existence of a script.
+Use actual code and verified outputs to decide script names and any subfolders needed later. Do not create unverified analyses simply to fill the structure.

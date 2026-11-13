@@ -1,9 +1,5 @@
-# 01 Preprocessing
+# Preprocessing and QC
 
-Steps **5–10**: slice timing (33 slices in the notes), realignment, coregistration, segmentation, spatial normalization, and smoothing.
+**Steps 1–13:** DICOM→NIfTI conversion, experiment/analysis run mapping, scan and trial counts, acquisition parameters, slice timing, realignment, coregistration, segmentation, normalization, smoothing, alignment QC, FD and spike-regressor identification.
 
-Keep image-branch choices explicit:
-- Conventional GLM: normalized and smoothed image branch (per supplied analysis notes)
-- Trial-wise MVPA: unsmoothed subject-space functional image branch (per supplied analysis notes)
-
-Do not silently substitute one branch for another. Record actual SPM batch configuration, input prefixes, output prefixes, reference slice, reference image and processing order from the real scripts.
+Keep acquisition run numbering distinct from analysis run order. Record which functional-image branch was used in the conventional GLM versus MVPA. Confirm all file paths and parameters against actual code before publication.

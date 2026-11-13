@@ -1,31 +1,15 @@
 # fMRI-Action-Decoding
 
-Repository framework for documenting and organizing an fMRI action-decoding study.
+fMRI action-decoding analysis repository.
 
-**Current status:** The repository contains a directory scaffold and workflow documentation. Analysis scripts, data, and results have **not** been verified or uploaded as part of this restructuring.
+## Code structure
 
-## Start here
+- [01_preprocessing](code/01_preprocessing/) — Data checks, SPM12 preprocessing, motion and image quality control
+- [02_univariate_analysis](code/02_univariate_analysis/) — Conventional condition-level GLM, contrasts, group analysis, statistical inference
+- [03_multivariate_analysis](code/03_multivariate_analysis/) — Trial-wise beta estimation, Searchlight, ROI decoding, RSA, and their statistical tests
 
-- [Code directory guide](code/README.md)
-- [42-step analysis index](docs/analysis_workflow.md)
-- [Code audit spreadsheet template](docs/code_inventory_template.csv)
-- [Environment notes](env/README.md)
+Other directories: `env/` (software environment), `results/` (approved figures, tables and QC summaries), `docs/` (workflow and code inventory).
 
-## Analysis branches
+See [the 42-step workflow index](docs/analysis_workflow.md).
 
-1. Data conversion and run/event checks
-2. Preprocessing and quality control
-3. Conventional **univariate GLM** (first-level, contrasts, group-level, multiple comparisons)
-4. **Single-trial GLM** for trial-wise beta estimates
-5. Searchlight decoding
-6. Anatomically defined ROI decoding
-7. RSA
-8. Statistical tests, figure and table generation
-
-**Do not treat folders as evidence that an analysis has been performed.** All script names, parameters, outputs, and numerical results must be checked against actual code and run logs before publication.
-
-## Important branch distinction
-
-Conventional univariate GLM and trial-wise MVPA use different image branches. The analysis notes identify smoothed, normalized images for the conventional GLM and unsmoothed subject-space images for MVPA. Verify exact image prefixes and file paths against the actual scripts before filling in reproducibility instructions.
-
-Raw participant imaging data and potentially identifying metadata are not included here; sharing is subject to data authorization.
+> This repository currently contains a structure and documentation only; analysis scripts and outputs must be checked against their real run logs before being uploaded. Raw participant imaging data must not be posted without permission.
